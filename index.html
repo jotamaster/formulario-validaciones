@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row pt-5">
+            <div class="md-12">
+                <h3>Validaciones con JS</h3>
+                <p>
+                    Para validar formularios tenemos que tener en cuenta que un formulario puede estar compuesto por
+                    varios tipos de inputs como text, number, etc.
+                    tambien debemos entender que los inputs tienen eventos asociados a ellos como puede ser el evento
+                    <em>keydown</em> y este evento se ejecuta cuando el usuario presiona una tecla
+                    en el input, vueamos un ejemplo:
+
+                </p>
+                <p>
+                    Tenemos el input de tipo texto en el cual queremos insertar el nombre del usuario, al input le
+                    indicamos el atributo nombre y el atributo id para usarlo como identificador.
+                </p>
+                <p>Ejemplo codigo html:</p>
+                <code>
+                    &lt;input type="text" name="nombre" id="inputNombre"&gt;
+                </code>
+                <br>
+                <br>
+                <p> En JS vamos a identificar nuestro input mediando su ID y haremos uso de su metodo <em>addEventListener</em> que le pasaremos dos parametros
+                    el primero es el nombre del evento del input y segundo una función que tiene como parametro el evento del input con toda su información y que en este ejemplo es llamada <em>"e"</em> y el bloque de la funcion simplemente 
+                    ejecuta un alert con el valor del input. Con esto logramos que cada vez que se presione una tecla del input se ejecute ese código </p>
+                <br>
+                <code>
+                    let inputNumbre = document.getElementById('inputNombre') <br> <br>
+                    inputNumbre.addEventListener('keydown', function(e){ <br> <br>
+                        console.log(e.target.value) <br> <br>
+                    })
+                </code>
+                <br><br>
+                <p>prueba el ejemplo visto a continuación y nota como la primera vez que presionas una tecla el alert esta vacío y esto pasa porque el evento que usamos se gatilla
+                    al momento de apretar la tecla  y aun no se agrega ese valor al input, podriamos decir que es previo a la asignación de ese valor y ya cuando apretamos la segunda letra 
+                    el alert muestra la tecla anterior, luego de probar esto anda al codigo y usa otro evento llamado <em>keyup</em> y ve la diferencia. <br> Ejemplo en practica:</p> <br>
+                    <p class="font-weight-light">Nota: recuerda que el primer parametro del metodo <em>addEventListener</em> es el nombre del evento</p>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="inputNombre">
+                <script>
+                    let inputNumbre = document.getElementById('inputNombre')
+                    inputNumbre.addEventListener('keydown', function(e){
+                        alert(e.target.value)
+                    })
+
+                </script>
+
+            </div>
+        </div>
+        <!-- <form class="mt-5">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form> -->
+    </div>
+</body>
+
+</html>
