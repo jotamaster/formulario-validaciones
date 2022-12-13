@@ -17,9 +17,9 @@
                 <p>
                     Para validar formularios tenemos que tener en cuenta que un formulario puede estar compuesto por
                     varios tipos de inputs como text, number, etc.
-                    tambien debemos entender que los inputs tienen eventos asociados a ellos como puede ser el evento
+                    también debemos entender que los inputs tienen eventos asociados a ellos como puede ser el evento
                     <em>keydown</em> y este evento se ejecuta cuando el usuario presiona una tecla
-                    en el input, vueamos un ejemplo:
+                    en el input, veamos un ejemplo:
 
                 </p>
                 <p>
@@ -32,27 +32,76 @@
                 </code>
                 <br>
                 <br>
-                <p> En JS vamos a identificar nuestro input mediando su ID y haremos uso de su metodo <em>addEventListener</em> que le pasaremos dos parametros
-                    el primero es el nombre del evento del input y segundo una función que tiene como parametro el evento del input con toda su información y que en este ejemplo es llamada <em>"e"</em> y el bloque de la funcion simplemente 
-                    ejecuta un alert con el valor del input. Con esto logramos que cada vez que se presione una tecla del input se ejecute ese código </p>
+                <p> En JS vamos a identificar nuestro input mediando su ID y haremos uso de su metodo
+                    <em>addEventListener</em> que le pasaremos dos parámetros
+                    el primero es el nombre del evento del input y segundo una función que tiene como parámetro el
+                    evento del input con toda su información y que en este ejemplo es llamada <em>"e"</em> y el bloque
+                    de la función simplemente
+                    ejecuta un alert con el valor del input. Con esto logramos que cada vez que se presione una tecla
+                    del input se ejecute ese código </p>
                 <br>
                 <code>
                     let inputNumbre = document.getElementById('inputNombre') <br> <br>
                     inputNumbre.addEventListener('keydown', function(e){ <br> <br>
-                        console.log(e.target.value) <br> <br>
+                        alert(e.target.value) <br> <br>
                     })
                 </code>
                 <br><br>
-                <p>prueba el ejemplo visto a continuación y nota como la primera vez que presionas una tecla el alert esta vacío y esto pasa porque el evento que usamos se gatilla
-                    al momento de apretar la tecla  y aun no se agrega ese valor al input, podriamos decir que es previo a la asignación de ese valor y ya cuando apretamos la segunda letra 
-                    el alert muestra la tecla anterior, luego de probar esto anda al codigo y usa otro evento llamado <em>keyup</em> y ve la diferencia. <br> Ejemplo en practica:</p> <br>
-                    <p class="font-weight-light">Nota: recuerda que el primer parametro del metodo <em>addEventListener</em> es el nombre del evento</p>
+                <p>Prueba el ejemplo visto a continuación y nota como la primera vez que presionas una tecla el alert
+                    esta vacío y esto pasa porque el evento que usamos se gatilla
+                    al momento de apretar la tecla y aun no se agrega ese valor al input, podriamos decir que es previo
+                    a la asignación de ese valor y ya cuando apretamos la segunda letra
+                    el alert muestra la tecla anterior, luego de probar esto anda al codigo y usa otro evento llamado
+                    <em>keyup</em> y ve la diferencia. <br> Ejemplo en practica:</p> <br>
+                <p class="font-weight-light">Nota: recuerda que el primer parámetro del metodo <em>addEventListener</em>
+                    es el nombre del evento</p>
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="inputNombre">
+                <br><br>
+
+                <h3>Casos de usos</h3>
+                <p>En la vida real se podria ir validando cada campo al momento de ejecutar uno de estos eventos segun tu necesidad, por ejemplo hagamos de cuenta que quieres
+                    validar que el largo de la dirección sea mayor a 3 pero quieres que esta validación se haga al momento de que el usuario pierda el foco del inputs o en otras palabras
+                     cuando el usuario hace click en otro input o otra parte de la pantalla, entonces para ese caso práctico nos sirve el evento <em>focusout</em> que se activa al perder el foco.
+                </p>
+                <p>Ejemplo codigo html:</p>
+                <code>
+                    &lt;input type="text" name="nombre" id="inputDireccion"&gt;
+                </code>
+                <br><br>
+                <p>Código:</p>
+                <code>
+                    let inputDireccion = document.getElementById('inputDireccion') <br> <br>
+                    inputDireccion.addEventListener('focusout', function(e){ <br> <br>
+                        inputDireccion.style.borderColor = '' <br> <br>
+                        if(e.target.value.length &lt; 3){ <br> <br>
+                            inputDireccion.style.borderColor = 'red' <br> <br>
+                        }
+                    })
+                </code>
+                <br>
+                <br>
+                <label for="nombre">Dirección</label>
+                <input type="text" name="nombre" id="inputDireccion">
+                <br><br>
+
+                <p>
+                    En el código al momentode ejecutarse el evento de <em>focusout</em> es dejarle el color del borde vacio pero luego de eso validamos si el largo de
+                    la dirección es menor a 3 y siendo ese el caso agregamos el color red al borde del input y si esa condición no se cumple simplemente no hace nada y
+                    solo se ejecuta su linea anterior la cual le deja el color vacío. lo hice con el fin de evitar hacer un else que tambien es factible.
+                </p>
                 <script>
                     let inputNumbre = document.getElementById('inputNombre')
-                    inputNumbre.addEventListener('keydown', function(e){
+                    inputNumbre.addEventListener('keydown', function (e) {
                         alert(e.target.value)
+                    })
+
+                    let inputDireccion = document.getElementById('inputDireccion')
+                    inputDireccion.addEventListener('focusout', function (e) {
+                        inputDireccion.style.borderColor = ''
+                        if(e.target.value.length < 3){
+                            inputDireccion.style.borderColor = 'red'
+                        }
                     })
 
                 </script>
