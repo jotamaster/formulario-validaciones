@@ -38,7 +38,8 @@
                     evento del input con toda su información y que en este ejemplo es llamada <em>"e"</em> y el bloque
                     de la función simplemente
                     ejecuta un alert con el valor del input. Con esto logramos que cada vez que se presione una tecla
-                    del input se ejecute ese código </p>
+                    del input se ejecute ese código
+                </p>
                 <br>
                 <code>
                     let inputNumbre = document.getElementById('inputNombre') <br> <br>
@@ -52,7 +53,8 @@
                     al momento de apretar la tecla y aun no se agrega ese valor al input, podriamos decir que es previo
                     a la asignación de ese valor y ya cuando apretamos la segunda letra
                     el alert muestra la tecla anterior, luego de probar esto anda al codigo y usa otro evento llamado
-                    <em>keyup</em> y ve la diferencia. <br> Ejemplo en practica:</p> <br>
+                    <em>keyup</em> y ve la diferencia. <br> Ejemplo en practica:
+                </p> <br>
                 <p class="font-weight-light">Nota: recuerda que el primer parámetro del metodo <em>addEventListener</em>
                     es el nombre del evento</p>
                 <label for="nombre">Nombre</label>
@@ -60,9 +62,12 @@
                 <br><br>
 
                 <h3>Casos de usos</h3>
-                <p>En la vida real se podria ir validando cada campo al momento de ejecutar uno de estos eventos segun tu necesidad, por ejemplo hagamos de cuenta que quieres
-                    validar que el largo de la dirección sea mayor a 3 pero quieres que esta validación se haga al momento de que el usuario pierda el foco del inputs o en otras palabras
-                     cuando el usuario hace click en otro input o otra parte de la pantalla, entonces para ese caso práctico nos sirve el evento <em>focusout</em> que se activa al perder el foco.
+                <p>En la vida real se podria ir validando cada campo al momento de ejecutar uno de estos eventos segun
+                    tu necesidad, por ejemplo hagamos de cuenta que quieres
+                    validar que el largo de la dirección sea mayor a 3 pero quieres que esta validación se haga al
+                    momento de que el usuario pierda el foco del inputs o en otras palabras
+                    cuando el usuario hace click en otro input o otra parte de la pantalla, entonces para ese caso
+                    práctico nos sirve el evento <em>focusout</em> que se activa al perder el foco.
                 </p>
                 <p>Ejemplo codigo html:</p>
                 <code>
@@ -86,10 +91,135 @@
                 <br><br>
 
                 <p>
-                    En el código al momentode ejecutarse el evento de <em>focusout</em> es dejarle el color del borde vacio pero luego de eso validamos si el largo de
-                    la dirección es menor a 3 y siendo ese el caso agregamos el color red al borde del input y si esa condición no se cumple simplemente no hace nada y
-                    solo se ejecuta su linea anterior la cual le deja el color vacío. lo hice con el fin de evitar hacer un else que tambien es factible.
+                    En el código al momento de ejecutarse el evento de <em>focusout</em> hacemos que el color del borde
+                    del input quede vacio pero luego de eso
+                    validamos si el largo de
+                    la dirección es menor a 3 y siendo ese el caso agregamos el color red al borde del input y si esa
+                    condición no se cumple simplemente no hace nada y
+                    solo se ejecuta su linea anterior la cual le deja el color vacío. lo hice con el fin de evitar hacer
+                    un else que tambien es factible.
                 </p>
+
+                <p>Lista de eventos mas populares JS </p>
+                <div class="table" id="table-15-1">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Evento</th>
+                                <th>Descripción</th>
+                                <th>Elementos para los que está definido</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>onblur</code></td>
+                                <td>Un elemento pierde el foco</td>
+                                <td><code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;label&gt;</code>,
+                                    <code>&lt;select&gt;</code>, <code>&lt;textarea&gt;</code>,
+                                    <code>&lt;body&gt;</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>onchange</code></td>
+                                <td>Un elemento ha sido modificado</td>
+                                <td><code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>,
+                                    <code>&lt;textarea&gt;</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>onclick</code></td>
+                                <td>Pulsar y soltar el ratón</td>
+                                <td>Todos los elementos</td>
+                            </tr>
+                            <tr>
+                                <td><code>ondblclick</code></td>
+                                <td>Pulsar dos veces seguidas con el ratón</td>
+                                <td>Todos los elementos</td>
+                            </tr>
+                            <tr>
+                                <td><code>onfocus</code></td>
+                                <td>Un elemento obtiene el foco</td>
+                                <td><code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;label&gt;</code>,
+                                    <code>&lt;select&gt;</code>, <code>&lt;textarea&gt;</code>,
+                                    <code>&lt;body&gt;</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>onkeydown</code></td>
+                                <td>Pulsar una tecla y no soltarla</td>
+                                <td>Elementos de formulario y <code>&lt;body&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>onkeypress</code></td>
+                                <td>Pulsar una tecla</td>
+                                <td>Elementos de formulario y <code>&lt;body&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>onkeyup</code></td>
+                                <td>Soltar una tecla pulsada</td>
+                                <td>Elementos de formulario y <code>&lt;body&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>onload</code></td>
+                                <td>Página cargada completamente</td>
+                                <td><code>&lt;body&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>onmousedown</code></td>
+                                <td>Pulsar un botón del ratón y no soltarlo</td>
+                                <td>Todos los elementos</td>
+                            </tr>
+                            <tr>
+                                <td><code>onmousemove</code></td>
+                                <td>Mover el ratón</td>
+                                <td>Todos los elementos</td>
+                            </tr>
+                            <tr>
+                                <td><code>onmouseout</code></td>
+                                <td>El ratón "sale" del elemento</td>
+                                <td>Todos los elementos</td>
+                            </tr>
+                            <tr>
+                                <td><code>onmouseover</code></td>
+                                <td>El ratón "entra" en el elemento</td>
+                                <td>Todos los elementos</td>
+                            </tr>
+                            <tr>
+                                <td><code>onmouseup</code></td>
+                                <td>Soltar el botón del ratón</td>
+                                <td>Todos los elementos</td>
+                            </tr>
+                            <tr>
+                                <td><code>onreset</code></td>
+                                <td>Inicializar el formulario</td>
+                                <td><code>&lt;form&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>onresize</code></td>
+                                <td>Modificar el tamaño de la ventana</td>
+                                <td><code>&lt;body&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>onselect</code></td>
+                                <td>Seleccionar un texto</td>
+                                <td><code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>onsubmit</code></td>
+                                <td>Enviar el formulario</td>
+                                <td><code>&lt;form&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>onunload</code></td>
+                                <td>Se abandona la página, por ejemplo al cerrar el navegador</td>
+                                <td><code>&lt;body&gt;</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="font-weight-light"><cite title="Source Title"> referencia
+                            https://www.arkaitzgarro.com/javascript/capitulo-15.html</cite></p>
+                </div>
                 <script>
                     let inputNumbre = document.getElementById('inputNombre')
                     inputNumbre.addEventListener('keydown', function (e) {
@@ -99,7 +229,7 @@
                     let inputDireccion = document.getElementById('inputDireccion')
                     inputDireccion.addEventListener('focusout', function (e) {
                         inputDireccion.style.borderColor = ''
-                        if(e.target.value.length < 3){
+                        if (e.target.value.length < 3) {
                             inputDireccion.style.borderColor = 'red'
                         }
                     })
