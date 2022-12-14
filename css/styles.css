@@ -1,0 +1,10 @@
+.errores{
+    display: none;
+    color: red;
+}
+pre {
+    font-family: "Courier New", monospace;
+    border-left: none;
+    background-color: #F6F6F6;
+    padding: 0.5em;
+}

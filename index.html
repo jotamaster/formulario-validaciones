@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -217,9 +218,76 @@
                             </tr>
                         </tbody>
                     </table>
-                    <p class="font-weight-light"><cite title="Source Title"> referencia
-                            https://www.arkaitzgarro.com/javascript/capitulo-15.html</cite></p>
+
                 </div>
+                <p class="font-weight-light"><cite title="Source Title"> referencia
+                        https://www.arkaitzgarro.com/javascript/capitulo-15.html</cite></p>
+
+                <br>
+                <p>Tambien esta el caso en el que necesites validar el formulario cuando le des click al boton submit o
+                    enviar y en esa situación en vez de
+                    pendiente a un evento que ejecute tu codigo que valide simplementelo gatillas tus validaciones con
+                    el boton de enviar
+                </p>
+
+                <p>Mini formulario:</p>
+
+
+                <form method="POST" id="myForm" action="algunlugar"
+                    onsubmit="event.preventDefault();validateMyForm(event);">
+                    <label for="edad">Edad</label>
+                    <input type="text" name="edad" id="edad">
+                    <p id="edadError" class="p-1 mb-2 bg-danger  text-white edadError errores">Validar edad pro favor
+                    </p>
+                    <div id="exito" class="p-1 mb-2 bg-success text-white d-none">Formulario enviado con exito</div>
+                    <button id="btnEnviar" type="submit">enviar</button>
+                </form>
+                <br><br><br>
+
+                <p>Ejemplo codigo html:</p>
+                <code>
+                    &lt;input type="text" name="nombre" id="inputDireccion"&gt; <br>
+                    &lt;form method="POST" id="myForm" action="algunlugar" onsubmit="event.preventDefault();validateMyForm(event);"&gt; <br>
+                        &lt;label for="edad"&gt;Edad&lt;/label&gt; <br>
+                        &lt;input type="text" name="edad" id="edad"&gt; <br>
+                        &lt;p id="edadError" class="p-1 mb-2 bg-danger  text-white edadError errores"&gt;Validar edad pro favor &lt;/p&gt; <br>
+                        &lt;div id="exito" class="p-1 mb-2 bg-success text-white d-none"&gt;Formulario enviado con exito&lt;/div&gt; <br>
+                        &lt;button id="btnEnviar" type="submit"&gt;enviar&lt;/button&gt; <br>
+                    &lt;/form&gt; <br>
+                </code>
+                <br><br>
+                <p>Código JS:</p>
+                <pre>
+                    <code>
+                        function validateMyForm(event){
+                            //expresion regular que acepta solo numeros
+                            console.log('hola',event)
+                            let reg = /^\d+$/;
+                            let edad = document.getElementById('edad')
+                            let myForm = document.getElementById('myForm')
+                            let edadError = document.getElementById('edadError')
+                            
+                            
+                            //validando que el valor de edad sea numeros
+                            if(reg.test(edad.value)){
+                                console.log('es valido');
+                                let btnEnviar = document.getElementById('btnEnviar')
+                                let mjsExito = document.getElementById('exito')
+                                mjsExito.classList.remove('d-none')
+                                edadError.style.display = 'none'
+                                btnEnviar.disabled = true
+                                //enviar el supuesto formulario
+                                // myForm.submit()
+                            }else{
+                                //mostrar errores
+                                edadError.style.display = 'block'
+                            }
+                            // myForm.submit()
+                        }<br>
+                    </code>
+                </pre>
+                <br>
+                <br>
                 <script>
                     let inputNumbre = document.getElementById('inputNombre')
                     inputNumbre.addEventListener('keydown', function (e) {
@@ -233,6 +301,35 @@
                             inputDireccion.style.borderColor = 'red'
                         }
                     })
+
+                    function validateMyForm (event) {
+                        //expresion regular que acepta solo numeros
+                        console.log('hola', event)
+                        let reg = /^\d+$/;
+                        let edad = document.getElementById('edad')
+                        let myForm = document.getElementById('myForm')
+                        let edadError = document.getElementById('edadError')
+
+
+                        //validando que el valor de edad sea numeros
+                        if (reg.test(edad.value)) {
+                            console.log('es valido');
+                            let btnEnviar = document.getElementById('btnEnviar')
+                            let mjsExito = document.getElementById('exito')
+                            mjsExito.classList.remove('d-none')
+                            edadError.style.display = 'none'
+                            btnEnviar.disabled = true
+
+                            //enviar el supuesto formulario
+                            // myForm.submit()
+                        } else {
+                            //mostrar errores
+
+                            edadError.style.display = 'block'
+                        }
+
+                        // myForm.submit()
+                    }
 
                 </script>
 
