@@ -3,8 +3,23 @@
     color: red;
 }
 pre {
-    font-family: "Courier New", monospace;
+    margin: 0 0 1em;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-break: break-all;
+    
+    font-family: monospace !important;
     border-left: none;
     background-color: #F6F6F6;
     padding: 0.5em;
+    border-radius: 1.6rem;
+    padding: 1.6rem !important;
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    color: #abb2bf;
+    background: #282c34;
+}
+code{
+    white-space: pre;
 }
